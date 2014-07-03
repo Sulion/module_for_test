@@ -1,0 +1,45 @@
+{
+    "type": "full",
+    "name": "FULL TEST",
+    "questions": [
+        {
+            "text": "What?",
+            "answers": [
+                {
+                "answer": "Yes",
+                "isright": false
+                },
+                {
+                "answer": "No",
+                "isright": true
+                }
+            ]
+        },
+        {
+            "text": "Why?",
+            "answers": [
+                {
+                "answer": "Yes",
+                "isright": false
+                },
+                {
+                "answer": "No",
+                "isright": true
+                }
+            ]
+        },
+        {
+            "text": "What?",
+            "answers": [
+                {
+                "answer": "Yes",
+                "isright": false
+                },
+                {
+                "answer": "No",
+                "isright": true
+                }
+            ]
+        }
+    ]
+}

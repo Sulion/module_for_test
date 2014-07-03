@@ -1,0 +1,45 @@
+{
+    "type": "N2",
+    "name": "N2 test",
+    "questions": [
+        {
+            "text": "What?",
+            "answers": [
+                {
+                "answer": "Yes",
+                "isright": false
+                },
+                {
+                "answer": "No",
+                "isright": true
+                }
+            ]
+        },
+        {
+            "text": "What?",
+            "answers": [
+                {
+                "answer": "Yes",
+                "isright": false
+                },
+                {
+                "answer": "No",
+                "isright": true
+                }
+            ]
+        },
+        {
+            "text": "Who?",
+            "answers": [
+                {
+                "answer": "Yes",
+                "isright": false
+                },
+                {
+                "answer": "No",
+                "isright": true
+                }
+            ]
+        }
+    ]
+}
