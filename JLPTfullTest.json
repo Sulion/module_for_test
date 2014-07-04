@@ -7,11 +7,11 @@
             "answers": [
                 {
                 "answer": "Yes",
-                "isright": false
+                "isright": "false"
                 },
                 {
                 "answer": "No",
-                "isright": true
+                "isright": "true"
                 }
             ]
         },
@@ -20,11 +20,11 @@
             "answers": [
                 {
                 "answer": "Yes",
-                "isright": false
+                "isright": "false"
                 },
                 {
                 "answer": "No",
-                "isright": true
+                "isright": "true"
                 }
             ]
         },
@@ -33,11 +33,11 @@
             "answers": [
                 {
                 "answer": "Yes",
-                "isright": false
+                "isright": "false"
                 },
                 {
                 "answer": "No",
-                "isright": true
+                "isright": "true"
                 }
             ]
         }
