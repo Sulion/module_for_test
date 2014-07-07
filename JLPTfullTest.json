@@ -3,41 +3,107 @@
     "name": "FULL TEST",
     "questions": [
         {
-            "text": "What?",
+            "text": "How old are you?",
             "answers": [
                 {
-                "answer": "Yes",
+                "answer": "I have 27 years old",
                 "isright": "false"
                 },
                 {
-                "answer": "No",
+                "answer": "I have 27 years",
+                "isright": "false"
+                },
+                {
+                "answer": "I am fine",
+                "isright": "false"
+                },
+                {
+                "answer": "I am 27 years old",
                 "isright": "true"
                 }
             ]
         },
         {
-            "text": "Why?",
+            "text": "He went to the Stadium..... . ",
             "answers": [
                 {
-                "answer": "Yes",
+                "answer": "with taxi",
                 "isright": "false"
                 },
                 {
-                "answer": "No",
+                "answer": "by taxi",
                 "isright": "true"
+                },
+                {
+                "answer": "on taxi",
+                "isright": "false"
+                },
+                {
+                "answer": "in taxi",
+                "isright": "false"
                 }
             ]
         },
         {
-            "text": "What?",
+            "text": "How long have you been living in London? ",
             "answers": [
                 {
-                "answer": "Yes",
+                "answer": "for 7 years",
+                "isright": "true"
+                },
+                {
+                "answer": "at least 7 years",
+                "isright": "true"
+                },
+                {
+                "answer": "since 7 years",
+                "isright": "true"
+                },
+                {
+                "answer": "7 years ago",
+                "isright": "false"
+                }
+            ]
+        },
+        {
+            "text": "We haven't got ..... money. ",
+            "answers": [
+                {
+                "answer": "a lot",
                 "isright": "false"
                 },
                 {
-                "answer": "No",
+                "answer": "some",
+                "isright": "false"
+                },
+                {
+                "answer": "any",
+                "isright": "fatruelse"
+                },
+                {
+                "answer": "many",
+                "isright": "false"
+                }
+            ]
+        },
+        {
+            "text": "Peter ..... fly to San Francisco tomorrow.",
+            "answers": [
+                {
+                "answer": "to going",
+                "isright": "false"
+                },
+                {
+                "answer": "goes to",
                 "isright": "true"
+                },
+                {
+                "answer": "is going to",
+                "isright": "false"
+                },
+                {
+                "answer": "go to",
+                "isright": "false"
                 }
             ]
         }
