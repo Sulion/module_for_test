@@ -10,6 +10,9 @@ class JLPTTest():
         self.TestType = TestType
 
 
+
+
+
 class JLPTQuestion():
     #def __init__(self, ID, ListOfTest, AnswersNum, QuestionText, ):
     pass
@@ -106,8 +109,5 @@ elif line == "N5":
     print("You choose {}".format(get_test_name(json_files_list()[2])))
 
 print("Prepare for battle")
-
-
-
 
 input()
