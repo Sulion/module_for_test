@@ -1,17 +1,21 @@
 import os
 import json
 
-# objects description
+class UserCondition():
+
+    def __init__(self, Question_num, Test_result):
+        self.Question_num = Question_num
+
 
 
 class JLPTTest():
 
-    def __init__(self, TestType):
-        self.TestType = TestType
 
 
-
-
+    def get_test_name(TestName):
+        with open(TestName) as data_file:
+            data = json.load(data_file)
+        return data["name"]
 
 class JLPTQuestion():
     #def __init__(self, ID, ListOfTest, AnswersNum, QuestionText, ):
@@ -35,24 +39,21 @@ def json_files_list():
     return test
 
 
-# realisacia
 def get_test_type(TestFileName):
     with open(TestFileName) as data_file:
         data = json.load(data_file)
     return data["type"]
 
-# realisacia
 def get_test_name(TestFileName):
     with open(TestFileName) as data_file:
         data = json.load(data_file)
     return data["name"]
 
-# realisacia
 def get_text_question(TestFileName, question_num):
     with open(TestFileName) as data_file:
         data = json.load(data_file)
     return data["questions"][question_num]["text"]
-# realisacia
+
 def get_test_answers(TestFileName, question_num):
     with open(TestFileName) as data_file:
         data = json.load(data_file)
@@ -63,8 +64,6 @@ def get_test_answers(TestFileName, question_num):
         i += 1
     return a
 
-
-# realisacia
 right_answer_counter = 0
 
 def isRightAnsw(TestFileName, question_num, answer):
@@ -86,28 +85,34 @@ while (counter < len(json_files_list())):
     all_type_list.append(get_test_type(a))
     counter += 1
 
-# external services
+# # console work
+# print("You can choose between: {}".format(all_type_list))
+# line = input("Input your test type:")
+#
+# # work logic
+# if line == "full":
+#     print("You choose {}".format(get_test_name(json_files_list()[0])))
+#     print(get_text_question(json_files_list()[0], 0))
+#     print(get_test_answers(json_files_list()[0], 0))
+#     answer = input("Answer: ")
+#     isRightAnsw(json_files_list()[0], 0, answer)
+#     print(right_answer_counter)
+#     print()
+# elif line == "N2":
+#     print("You choose {}".format(get_test_name(json_files_list()[1])))
+# elif line == "N5":
+#     print("You choose {}".format(get_test_name(json_files_list()[2])))
+#
+# print("Prepare for battle")
+#
+#
+# input()
 
 
+if __name__ == "__main__":
 
-# console work
-print("You can choose between: {}".format(all_type_list))
-line = input("Input your test type:")
-
-# work logic
-if line == "full":
-    print("You choose {}".format(get_test_name(json_files_list()[0])))
-    print(get_text_question(json_files_list()[0], 0))
-    print(get_test_answers(json_files_list()[0], 0))
-    answer = input()
-    isRightAnsw(json_files_list()[0], 0, answer)
-    print(right_answer_counter)
-    print()
-elif line == "N2":
-    print("You choose {}".format(get_test_name(json_files_list()[1])))
-elif line == "N5":
-    print("You choose {}".format(get_test_name(json_files_list()[2])))
-
-print("Prepare for battle")
-
-input()
+    b = json_files_list()[0]
+    # print(type(b))
+    # a = JLPTTest().get_test_name(b)
+    #print(a)
+    print(get_test_name(b))
