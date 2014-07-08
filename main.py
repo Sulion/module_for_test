@@ -1,33 +1,71 @@
 import os
 import json
 
-class UserCondition():
-
-    def __init__(self, Question_num, Test_result):
-        self.Question_num = Question_num
-
-
 
 class JLPTTest():
 
+    def __init__(self):
+        self.name = None
+        self.type = None
 
+    def set_test_name(self, test_file_name):
+        self.name = take_data_from_json(test_file_name)["name"]
 
-    def get_test_name(TestName):
-        with open(TestName) as data_file:
-            data = json.load(data_file)
-        return data["name"]
+    def set_test_type(self, test_file_name):
+        self.type = take_data_from_json(test_file_name)["type"]
+
+    def get_test_name(self, test_file_name):
+        return take_data_from_json(test_file_name)["name"]
+
+    def get_test_type(self, test_file_name):
+        return take_data_from_json(test_file_name)["type"]
+
 
 class JLPTQuestion():
-    #def __init__(self, ID, ListOfTest, AnswersNum, QuestionText, ):
-    pass
+
+    def __init__(self):
+        self.text = ""
+        self.question_num = 0
+
+    def set_question_num(self, question_num):
+        self.question_num = question_num
+
+    def get_question_num(self):
+        return self.question_num
+
+    def set_question_text(self, test_file_name):
+        self.text = take_data_from_json(test_file_name)["questions"][self.question_num]["text"]
+
+    def get_question_text(self, test_file_name):
+        return take_data_from_json(test_file_name)["questions"][self.question_num]["text"]
 
 
 class JLPTAnswer():
-    pass
+
+    def __init__(self):
+        self.text = ""
+        self.correct = False
+
+    def set_answer_text(self, test_file_name, question_num):
+        data = take_data_from_json(test_file_name)
+        i = 0
+        while (i<len(data["questions"][question_num]["answers"])):
+            self.text = data["questions"][question_num]["answers"][i]["answer"]
+            i += 1
+
+    def get_answer_text(self, test_file_name, question_num):
+        data = take_data_from_json(test_file_name)
+        i = 0
+        a = []
+        while (i<len(data["questions"][question_num]["answers"])):
+            a.append(data["questions"][question_num]["answers"][i]["answer"])
+            i += 1
+        return a
 
 
-# realisacia
+# static methods
 def json_files_list():
+    """Return all file names into current directory"""
     current_directory = os.getcwd()
     files = os.listdir(current_directory)
     test = []
@@ -39,30 +77,29 @@ def json_files_list():
     return test
 
 
-def get_test_type(TestFileName):
-    with open(TestFileName) as data_file:
-        data = json.load(data_file)
-    return data["type"]
+def take_data_from_json(test_file_name):
+    with open(test_file_name) as data_file:
+        return json.load(data_file)
 
-def get_test_name(TestFileName):
-    with open(TestFileName) as data_file:
-        data = json.load(data_file)
-    return data["name"]
 
-def get_text_question(TestFileName, question_num):
-    with open(TestFileName) as data_file:
-        data = json.load(data_file)
-    return data["questions"][question_num]["text"]
 
-def get_test_answers(TestFileName, question_num):
-    with open(TestFileName) as data_file:
-        data = json.load(data_file)
-    i = 0
-    a = []
-    while (i<len(data["questions"][question_num]["answers"])):
-        a.append(data["questions"][question_num]["answers"][i]["answer"])
-        i += 1
-    return a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 right_answer_counter = 0
 
@@ -78,12 +115,12 @@ def isRightAnsw(TestFileName, question_num, answer):
                 right_answer_counter = right_answer_counter + 1
         i += 1
 
-all_type_list = []
-counter = 0
-while (counter < len(json_files_list())):
-    a = json_files_list()[counter]
-    all_type_list.append(get_test_type(a))
-    counter += 1
+# all_type_list = []
+# counter = 0
+# while (counter < len(json_files_list())):
+#     a = json_files_list()[counter]
+#     all_type_list.append(get_test_type(a))
+#     counter += 1
 
 # # console work
 # print("You can choose between: {}".format(all_type_list))
@@ -110,9 +147,12 @@ while (counter < len(json_files_list())):
 
 
 if __name__ == "__main__":
-
-    b = json_files_list()[0]
-    # print(type(b))
-    # a = JLPTTest().get_test_name(b)
-    #print(a)
-    print(get_test_name(b))
+    file = json_files_list()
+    a = JLPTTest()
+    b = JLPTQuestion()
+    c = JLPTAnswer()
+    a.set_test_name(file[0])
+    b.set_question_num(0)
+    b.set_question_text(file[0])
+    c.set_answer_text(file[0], 0)
+    print(c.get_answer_text(file[0], 0))

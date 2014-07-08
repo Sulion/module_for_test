@@ -7,19 +7,19 @@
             "answers": [
                 {
                 "answer": "I have 27 years old",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "I have 27 years",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "I am fine",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "I am 27 years old",
-                "isright": "true"
+                "correct": "true"
                 }
             ]
         },
@@ -28,19 +28,19 @@
             "answers": [
                 {
                 "answer": "with taxi",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "by taxi",
-                "isright": "true"
+                "correct": "true"
                 },
                 {
                 "answer": "on taxi",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "in taxi",
-                "isright": "false"
+                "correct": "false"
                 }
             ]
         },
@@ -49,19 +49,19 @@
             "answers": [
                 {
                 "answer": "for 7 years",
-                "isright": "true"
+                "correct": "true"
                 },
                 {
                 "answer": "at least 7 years",
-                "isright": "true"
+                "correct": "true"
                 },
                 {
                 "answer": "since 7 years",
-                "isright": "true"
+                "correct": "true"
                 },
                 {
                 "answer": "7 years ago",
-                "isright": "false"
+                "correct": "false"
                 }
             ]
         },
@@ -70,19 +70,19 @@
             "answers": [
                 {
                 "answer": "a lot",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "some",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "any",
-                "isright": "fatruelse"
+                "correct": "fatruelse"
                 },
                 {
                 "answer": "many",
-                "isright": "false"
+                "correct": "false"
                 }
             ]
         },
@@ -91,19 +91,19 @@
             "answers": [
                 {
                 "answer": "to going",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "goes to",
-                "isright": "true"
+                "correct": "true"
                 },
                 {
                 "answer": "is going to",
-                "isright": "false"
+                "correct": "false"
                 },
                 {
                 "answer": "go to",
-                "isright": "false"
+                "correct": "false"
                 }
             ]
         }
