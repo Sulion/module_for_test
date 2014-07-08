@@ -52,8 +52,15 @@ class JLPTAnswer():
     def get_answer_text(self, test_file_name, question_num, answer_num):
         return take_data_from_json(test_file_name)["questions"][question_num]["answers"][answer_num]["text"]
 
+    def set_correct(self, correct):
+        self.correct = correct
+
     def iscorrect(self, test_file_name, question_num, answer_num):
-        return take_data_from_json(test_file_name)["questions"][question_num]["answers"][answer_num]["correct"]
+        if take_data_from_json(test_file_name)["questions"][question_num]["answers"][answer_num]["correct"] == "true":
+            return 1
+        else:
+            return 0
+
 
 class TestCondition():
 
@@ -85,6 +92,8 @@ class TestCondition():
         return take_data_from_json(test_file_name)["questions"][self.current_answer]
 
 # static methods
+
+
 def json_files_list():
     """Return all file names into current directory"""
     current_directory = os.getcwd()
@@ -106,48 +115,29 @@ def take_data_from_json(test_file_name):
 def question_dialog(test_file_name):
     test = TestCondition()
     question_num = 0
+    right_answers_counter = 0
     while(question_num < test.get_total_question(test_file_name)):
+        question = JLPTQuestion()
+        question.set_question_num(question_num)
         test.set_current_question(question_num)
-        print(test.get_current_question(test_file_name))
-        question_num = question_num + 1
-
+        print(question.get_question_text(test_file_name))
         answer_num = 0
+        answer = JLPTAnswer()
         while(answer_num < test.total_answers):
-            test.get_current_answer(test_file_name)
-            print(test)
+            answer.set_answer_text(test_file_name, question_num, answer_num)
+            print("{}) ".format(answer_num + 1) + answer.get_answer_text(test_file_name, question_num, answer_num))
             answer_num = answer_num + 1
+        print("Choose correct answer")
+        choosing_answer = int(input())
+        answer.set_correct(answer.iscorrect(test_file_name, question_num, choosing_answer - 1))
+        print(answer.correct)
+        right_answers_counter = right_answers_counter + answer.iscorrect(test_file_name, question_num, choosing_answer - 1)
+        print(right_answers_counter)
+        question_num = question_num + 1
+    return right_answers_counter
 
-
-
-# all_type_list = []
-# counter = 0
-# while (counter < len(json_files_list())):
-#     a = json_files_list()[counter]
-#     all_type_list.append(get_test_type(a))
-#     counter += 1
-
-# # console work
-# print("You can choose between: {}".format(all_type_list))
-# line = input("Input your test type:")
-#
-# # work logic
-# if line == "full":
-#     print("You choose {}".format(get_test_name(json_files_list()[0])))
-#     print(get_text_question(json_files_list()[0], 0))
-#     print(get_test_answers(json_files_list()[0], 0))
-#     answer = input("Answer: ")
-#     isRightAnsw(json_files_list()[0], 0, answer)
-#     print(right_answer_counter)
-#     print()
-# elif line == "N2":
-#     print("You choose {}".format(get_test_name(json_files_list()[1])))
-# elif line == "N5":
-#     print("You choose {}".format(get_test_name(json_files_list()[2])))
-#
-# print("Prepare for battle")
-#
-#
-# input()
+def get_test_result(test_file_name, right_answers_counter):
+    return (right_answers_counter)/(TestCondition().get_total_question(test_file_name))
 
 
 if __name__ == "__main__":
@@ -158,6 +148,5 @@ if __name__ == "__main__":
     test = JLPTTest()
     test.set_test_name(file[0])
     test.set_test_type(file[0])
-
-    question_dialog(file[0])
-
+    a = question_dialog(file[0])
+    print("Your result is: {}".format(get_test_result(file[0], a)))
