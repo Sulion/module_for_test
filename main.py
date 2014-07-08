@@ -46,22 +46,43 @@ class JLPTAnswer():
         self.text = ""
         self.correct = False
 
-    def set_answer_text(self, test_file_name, question_num):
-        data = take_data_from_json(test_file_name)
-        i = 0
-        while (i<len(data["questions"][question_num]["answers"])):
-            self.text = data["questions"][question_num]["answers"][i]["answer"]
-            i += 1
+    def set_answer_text(self, test_file_name, question_num, answer_num):
+        self.text = take_data_from_json(test_file_name)["questions"][question_num]["answers"][answer_num]["text"]
 
-    def get_answer_text(self, test_file_name, question_num):
-        data = take_data_from_json(test_file_name)
-        i = 0
-        a = []
-        while (i<len(data["questions"][question_num]["answers"])):
-            a.append(data["questions"][question_num]["answers"][i]["answer"])
-            i += 1
-        return a
+    def get_answer_text(self, test_file_name, question_num, answer_num):
+        return take_data_from_json(test_file_name)["questions"][question_num]["answers"][answer_num]["text"]
 
+    def iscorrect(self, test_file_name, question_num, answer_num):
+        return take_data_from_json(test_file_name)["questions"][question_num]["answers"][answer_num]["correct"]
+
+class TestCondition():
+
+    def __init__(self):
+        self.total_questions = 0
+        self.total_answers = 4
+        self.current_question = 0
+        self.current_answer = 0
+
+    def set_total_questions(self, total_questions):
+        self.total_questions = total_questions
+
+    def get_total_question(self, test_file_name):
+        return len(take_data_from_json(test_file_name)["questions"])
+
+    def set_total_answers(self, total_answers):
+        self.total_answers = total_answers
+
+    def set_current_question(self, current_question):
+        self.current_question = current_question
+
+    def get_current_question(self, test_file_name):
+        return take_data_from_json(test_file_name)["questions"][self.current_question]
+
+    def set_current_answer(self, current_answer):
+        self.current_answer = current_answer
+
+    def get_current_answer(self, test_file_name):
+        return take_data_from_json(test_file_name)["questions"][self.current_answer]
 
 # static methods
 def json_files_list():
@@ -82,38 +103,21 @@ def take_data_from_json(test_file_name):
         return json.load(data_file)
 
 
+def question_dialog(test_file_name):
+    test = TestCondition()
+    question_num = 0
+    while(question_num < test.get_total_question(test_file_name)):
+        test.set_current_question(question_num)
+        print(test.get_current_question(test_file_name))
+        question_num = question_num + 1
+
+        answer_num = 0
+        while(answer_num < test.total_answers):
+            test.get_current_answer(test_file_name)
+            print(test)
+            answer_num = answer_num + 1
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-right_answer_counter = 0
-
-def isRightAnsw(TestFileName, question_num, answer):
-    global right_answer_counter
-    with open(TestFileName) as data_file:
-        data = json.load(data_file)
-    i = 0
-    while (i<len(data["questions"][question_num]["answers"])):
-        if data["questions"][question_num]["answers"][i]["isright"] == "true":
-            right_answer = data["questions"][question_num]["answers"][i]["answer"]
-            if right_answer == answer:
-                right_answer_counter = right_answer_counter + 1
-        i += 1
 
 # all_type_list = []
 # counter = 0
@@ -147,12 +151,13 @@ def isRightAnsw(TestFileName, question_num, answer):
 
 
 if __name__ == "__main__":
+    #file initialization
     file = json_files_list()
-    a = JLPTTest()
-    b = JLPTQuestion()
-    c = JLPTAnswer()
-    a.set_test_name(file[0])
-    b.set_question_num(0)
-    b.set_question_text(file[0])
-    c.set_answer_text(file[0], 0)
-    print(c.get_answer_text(file[0], 0))
+
+    #test initialization
+    test = JLPTTest()
+    test.set_test_name(file[0])
+    test.set_test_type(file[0])
+
+    question_dialog(file[0])
+

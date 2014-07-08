@@ -6,20 +6,20 @@
             "text": "How old are you?",
             "answers": [
                 {
-                "answer": "I have 27 years old",
-                "correct": "false"
+                "text": "I have 27 years old",
+                "correct": false
                 },
                 {
-                "answer": "I have 27 years",
-                "correct": "false"
+                "text": "I have 27 years",
+                "correct": false
                 },
                 {
-                "answer": "I am fine",
-                "correct": "false"
+                "text": "I am fine",
+                "correct": false
                 },
                 {
-                "answer": "I am 27 years old",
-                "correct": "true"
+                "text": "I am 27 years old",
+                "correct": true
                 }
             ]
         },
@@ -27,20 +27,20 @@
             "text": "He went to the Stadium..... . ",
             "answers": [
                 {
-                "answer": "with taxi",
-                "correct": "false"
+                "text": "with taxi",
+                "correct": false
                 },
                 {
-                "answer": "by taxi",
-                "correct": "true"
+                "text": "by taxi",
+                "correct": true
                 },
                 {
-                "answer": "on taxi",
-                "correct": "false"
+                "text": "on taxi",
+                "correct": false
                 },
                 {
-                "answer": "in taxi",
-                "correct": "false"
+                "text": "in taxi",
+                "correct": false
                 }
             ]
         },
@@ -48,20 +48,20 @@
             "text": "How long have you been living in London? ",
             "answers": [
                 {
-                "answer": "for 7 years",
-                "correct": "true"
+                "text": "for 7 years",
+                "correct": true
                 },
                 {
-                "answer": "at least 7 years",
-                "correct": "true"
+                "text": "at least 7 years",
+                "correct": true
                 },
                 {
-                "answer": "since 7 years",
-                "correct": "true"
+                "text": "since 7 years",
+                "correct": true
                 },
                 {
-                "answer": "7 years ago",
-                "correct": "false"
+                "text": "7 years ago",
+                "correct": false
                 }
             ]
         },
@@ -69,20 +69,20 @@
             "text": "We haven't got ..... money. ",
             "answers": [
                 {
-                "answer": "a lot",
-                "correct": "false"
+                "text": "a lot",
+                "correct": false
                 },
                 {
-                "answer": "some",
-                "correct": "false"
+                "text": "some",
+                "correct": false
                 },
                 {
-                "answer": "any",
+                "text": "any",
                 "correct": "fatruelse"
                 },
                 {
-                "answer": "many",
-                "correct": "false"
+                "text": "many",
+                "correct": false
                 }
             ]
         },
@@ -90,20 +90,20 @@
             "text": "Peter ..... fly to San Francisco tomorrow.",
             "answers": [
                 {
-                "answer": "to going",
-                "correct": "false"
+                "text": "to going",
+                "correct": false
                 },
                 {
-                "answer": "goes to",
-                "correct": "true"
+                "text": "goes to",
+                "correct": true
                 },
                 {
-                "answer": "is going to",
-                "correct": "false"
+                "text": "is going to",
+                "correct": false
                 },
                 {
-                "answer": "go to",
-                "correct": "false"
+                "text": "go to",
+                "correct": false
                 }
             ]
         }
