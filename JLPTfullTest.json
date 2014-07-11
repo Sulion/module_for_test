@@ -49,11 +49,11 @@
             "answers": [
                 {
                 "text": "for 7 years",
-                "correct": true
+                "correct": false
                 },
                 {
                 "text": "at least 7 years",
-                "correct": true
+                "correct": false
                 },
                 {
                 "text": "since 7 years",
