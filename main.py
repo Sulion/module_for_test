@@ -35,7 +35,8 @@ class TestCondition():
 
 class JLPTTest(TestCondition):
 
-    def __init__(self):
+    def __init__(self, test_file_name):
+        TestCondition.__init__(self, test_file_name)
         self.name = None
         self.type = None
 
@@ -52,10 +53,10 @@ class JLPTTest(TestCondition):
         return take_data_from_json(test_file_name)["type"]
 
 
-class JLPTQuestion(TestCondition):
+class JLPTQuestion(JLPTTest):
 
     def __init__(self, test_file_name):
-        TestCondition.__init__(self, test_file_name)
+        JLPTTest.__init__(self, test_file_name)
         self.text = ""
         self.question_num = 0
 
@@ -97,10 +98,8 @@ class JLPTAnswer(JLPTQuestion):
         else:
             return 0
 
-# static methods
 
 def json_files_list():
-    """Return all file names into current directory"""
     current_directory = os.getcwd()
     files = os.listdir(current_directory)
     test = []
@@ -143,12 +142,6 @@ def get_test_result(test_file_name, right_answers_counter):
 
 
 if __name__ == "__main__":
-    #file initialization
     file = json_files_list()
-
-    #test initialization
-    test = JLPTTest()
-    test.set_test_name(file[0])
-    test.set_test_type(file[0])
     a = question_dialog(file[0])
     print("Your result is: {}%".format(get_test_result(file[0], a)))
